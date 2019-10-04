@@ -1,5 +1,7 @@
 {
   "name": "helanMock",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registrationFarmerLand</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-label>Farm Name</ion-label>
+    <ion-input placeholder="Enter Farm Name" class="input"></ion-input>
+  </div>
+  <div>
+    <ion-label>Land Owner Name</ion-label>
+    <ion-input placeholder="Enter User Id" class="input"></ion-input>
+  </div>
+  <div>
+      <ion-label>Farm Type</ion-label>
+      <ion-select interface="action-sheet" placeholder="Select One">
+        <ion-select-option value="f">Farm Type 1</ion-select-option>
+        <ion-select-option value="m">Farm Type 2</ion-select-option>
+      </ion-select>
+    </div>
+  <div>
+    <ion-label>Land Details (in Acres)</ion-label>
+    <ion-input placeholder="Enter Land Details (in Acres)" class="input"></ion-input>
+  </div>
+  <div>
+    <ion-label>Location</ion-label>
+    <ion-input placeholder="Enter Location" class="input"></ion-input>
+  </div>
+  <div>
+    <ion-label>Address</ion-label>
+    <ion-input placeholder="Enter Address" class="input"></ion-input>
+  </div>
+
+
+  <div>
+      <ion-label>Willing to</ion-label>
+      <div class="checks">
+        <div>
+          <ion-checkbox value="sell"></ion-checkbox>
+          <ion-label>Sell</ion-label>
+        </div>
+        <div>
+            <ion-checkbox value="rent"></ion-checkbox>
+            <ion-label>Rent</ion-label>
+          </div>
+      </div>
+    </div>
+
+    <div style="text-align: end">
+        <ion-button>Save</ion-button>
+        <ion-button class="disabled">Submit</ion-button>
+      </div>
+
+</ion-content>

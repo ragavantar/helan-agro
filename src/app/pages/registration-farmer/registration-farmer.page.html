@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registrationFarmer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="tabs">
+  <div [class.active]="tab == 'basic'" (click)="setTab('basic')">Basic</div>
+  <div [class.active]="tab == 'land'" (click)="setTab('land')">Land</div>
+  <div [class.active]="tab == 'equipment'" (click)="setTab('equipment')">Equipment</div>
+</div>
+<ion-content padding>
+  <div *ngIf="tab == 'basic'">
+    <h1>Welcome Siva</h1>
+
+    <div>
+      <ion-label>First Name</ion-label>
+      <ion-input placeholder="Enter First Name" class="input"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>Last Name</ion-label>
+      <ion-input placeholder="Enter Last Name" class="input"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>Mobile Number</ion-label>
+      <ion-input placeholder="Enter Mobile Number" class="input"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>Location</ion-label>
+      <ion-input placeholder="Enter Location" class="input"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>Address</ion-label>
+      <ion-input placeholder="Enter Address" class="input"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>Pincode</ion-label>
+      <ion-input placeholder="Enter Pincode" class="input"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>State</ion-label>
+      <ion-input placeholder="Enter State" class="input"></ion-input>
+    </div>
+
+    <div>
+      <ion-label>Country</ion-label>
+      <ion-input placeholder="Enter Country" class="input"></ion-input>
+    </div>
+
+  </div>
+
+  <div *ngIf="tab == 'land'">
+    <ion-card>
+      <ion-row>
+        <ion-col size="4">
+          <img src='assets/img.png' alt="land image" />
+        </ion-col>
+        <ion-col>
+          <ion-content>
+              <ion-card-title>Mango Farm</ion-card-title>
+              <div class="first">
+                  <ion-card-subtitle>Willing to</ion-card-subtitle>
+                  Sell  
+              </div>
+              <div>
+                  <ion-card-subtitle>Quantity</ion-card-subtitle>
+                  3  
+              </div>
+          </ion-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <div *ngIf="tab == 'equipment'"></div>
+
+
+
+  <div style="text-align: end">
+      <ion-button>Save</ion-button>
+      <ion-button class="disabled">Submit</ion-button>
+    </div>
+</ion-content>

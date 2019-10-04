@@ -24,3 +24,55 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.roundedButton, .roundedButton:hover{
+    border-radius: 20px; 
+    padding: 10px 25px;
+    background: white;
+    color: #86C34A;
+    font-size: 13px;
+    border: 2px solid #86C34A;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    outline: none;
+
+    &.active{
+        background: #86C34A;
+        color: white;
+    }
+}
+
+ion-button, ion-button:hover{
+    --background: #86C34A;
+    --color: white;
+}
+
+
+ion-button{
+    &.disabled{
+        --background: #E1E1E1;
+        --color: #AAAAAA;
+    }
+}
+
+.input{
+    --padding-start: 0;
+    border-bottom: 1px solid #0000001F;
+}
+
+ion-select{
+    --padding-start: 0;
+    border-bottom: 1px solid #0000001F;
+}
+
+ion-radio{
+    --color-checked: #86C34A;
+}
+
+ion-checkbox{
+    --background-checked: #86C34A;
+    --border-color-checked: #86C34A;
+}
+
+
