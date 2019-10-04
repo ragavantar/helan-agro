@@ -19,12 +19,20 @@ export class LoginPage implements OnInit {
     password: ['', Validators.required]
   })
 
+  // signupForm = this.fb.group({
+  //   name: ['', Validators.required],
+  //   number: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+  //   email: ['', [Validators.required, Validators.email]]
+  // })
+  //pattern should also add
+
+
   signupForm = this.fb.group({
     name: ['', Validators.required],
-    number: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-    email: ['', [Validators.required, Validators.email]]
+    number: ['', Validators.required],
+    email: ['', Validators.required]
   })
-  //pattern should also add
+
 
   async presentToast(msg) {
     const toast = await this.toastController.create({
@@ -36,7 +44,7 @@ export class LoginPage implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, public toastController: ToastController, public nav:NavController) { }
+  constructor(private fb: FormBuilder, public toastController: ToastController, private nav:NavController) { }
 
   ngOnInit() {
   }
@@ -52,7 +60,16 @@ export class LoginPage implements OnInit {
   onSubmit(){
     console.log('submitted', this.signupForm, this.signupForm.valid)
     this.presentToast('successfully submitted')
-    this.nav.navigateForward('registration-farmer')
+    setTimeout(() => {
+      if(this.userType == 'Farmer')
+      this.nav.navigateForward('registration-farmer')
+      else if(this.userType == 'Invester'){
+        this.signin?
+        this.nav.navigateForward('home-invester')
+        :
+        this.nav.navigateForward('registration-invester')
+      }
+    }, 500);
   }
 
 }

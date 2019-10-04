@@ -1,7 +1,7 @@
 <ion-content padding>
   <div style="text-align: center">
     <img
-      src='https://public-v2links.adobecc.com/8a3f4657-e7ff-40e6-6d9e-3baa12b97b6d/component?params=component_id:33bf4a99-19c9-41cc-8790-ee7195247422&params=version:0&token=1570117612_da39a3ee_4c66f50c80c3785b1cfd74f70a5284bde6a7e9bb&api_key=CometServer1'
+      src='assets/logo.png'
       alt='logo' />
   </div>
 
@@ -23,7 +23,7 @@
   </div>
   <div>
     <button class="roundedButton" [class.active]="userType == 'Farmer'" (click)="setUserType('Farmer')">Farmer</button>
-    <button class="roundedButton" [class.active]="userType == 'Invester'" (click)="setUserType('Invester')">Invester</button>
+    <button class="roundedButton" [class.active]="userType == 'Invester'" (click)="setUserType('Invester')">Investor</button>
     <button class="roundedButton" [class.active]="userType == 'Others'" (click)="setUserType('Others')">Others</button>
     <button class="roundedButton" [class.active]="userType == 'Admin'" (click)="setUserType('Admin')">Admin</button>
   </div>
@@ -41,7 +41,7 @@
       </div>
       
       <div style="text-align: end">
-          <ion-button type="submit" [disabled]="!signinForm.valid">Submit</ion-button>
+          <ion-button type="submit" [disabled]="!signinForm.valid">Sign In</ion-button>
         </div>
       </form>
   </div>
@@ -62,8 +62,7 @@
     <ion-input formControlName="email" type="text" inputmode="email" placeholder="Enter Email ID" class="input"></ion-input>
   </div>
   <div style="text-align: end">
-      <ion-button type="submit" [disabled]="!signupForm.valid">Submit</ion-button>
-      <ion-button type="submit" [disabled]="signupForm.valid">Submit</ion-button>
+      <ion-button type="submit" [disabled]="!signupForm.valid">Sign Up</ion-button>
     </div>
     </form>
   </ng-template>

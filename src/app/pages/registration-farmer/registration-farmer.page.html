@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>    
     <ion-title>registrationFarmer</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +14,7 @@
 </div>
 <ion-content padding>
   <div *ngIf="tab == 'basic'">
-    <h1>Welcome Siva</h1>
+    <h1>Welcome User</h1>
 
     <div>
       <ion-label>First Name</ion-label>
@@ -56,6 +59,7 @@
   </div>
 
   <div *ngIf="tab == 'land'">
+    <!-- template start -->
     <ion-card>
       <ion-row>
         <ion-col size="4">
@@ -76,13 +80,61 @@
         </ion-col>
       </ion-row>
     </ion-card>
+    <!-- template end -->
+    <ion-card routerLink="/registration-farmer-land" routerDirection="forward">
+      <ion-row>
+        <ion-col size="4">
+          <img src='assets/default-thumbnail.png' alt="land image" />
+        </ion-col>
+        <ion-col>
+          <ion-content>
+              <ion-card-title>Add Land</ion-card-title>
+          </ion-content>
+        </ion-col>
+      </ion-row>
+    </ion-card>
   </div>
 
-  <div *ngIf="tab == 'equipment'"></div>
+  <div *ngIf="tab == 'equipment'">
+        <!-- template start -->
+        <ion-card>
+            <ion-row>
+              <ion-col size="4">
+                <img src='assets/img.png' alt="land image" />
+              </ion-col>
+              <ion-col>
+                <ion-content>
+                    <ion-card-title>Equipment 1</ion-card-title>
+                    <div class="first">
+                        <ion-card-subtitle>Willing to</ion-card-subtitle>
+                        Rent  
+                    </div>
+                    <div>
+                        <ion-card-subtitle>Quantity</ion-card-subtitle>
+                        2
+                    </div>
+                </ion-content>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+          <!-- template end -->
+          <ion-card routerLink="/registration-farmer-equipments" routerDirection="forward">
+              <ion-row>
+                <ion-col size="4">
+                  <img src='assets/default-thumbnail.png' alt="land image" />
+                </ion-col>
+                <ion-col>
+                  <ion-content>
+                      <ion-card-title>Add Equipment</ion-card-title>
+                  </ion-content>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+  </div>
 
 
 
-  <div style="text-align: end">
+    <div style="text-align: end">
       <ion-button>Save</ion-button>
       <ion-button class="disabled">Submit</ion-button>
     </div>

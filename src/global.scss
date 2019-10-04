@@ -75,4 +75,7 @@ ion-checkbox{
     --border-color-checked: #86C34A;
 }
 
-
+ion-toolbar, .header-md:after{
+    --background: #86C34A;
+    background: #86C34A;
+}
