@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeInvesterPage implements OnInit {
 
+  filters: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleFilters(){
+    this.filters = !this.filters;
   }
 
 }

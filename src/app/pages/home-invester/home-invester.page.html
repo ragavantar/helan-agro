@@ -1,12 +1,25 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>homeInvester</ion-title>
+
+    <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="search"></ion-icon>
+        </ion-button>
+        <ion-button>
+            <ion-icon name="notifications"></ion-icon>
+        </ion-button>
+        <ion-button (click)="toggleFilters()">
+            <ion-icon name="options"></ion-icon>
+        </ion-button>
+      </ion-buttons>   
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <div class="filters" padding>
+  <div *ngIf="filters" class="filters" padding>
     <div>
       <div>Looking for</div>
       <button class="roundedButton">Land</button>
@@ -41,7 +54,7 @@
           3  
       </div>
       <div class="last">
-          <button class="roundedButton" >Intrested</button>
+          <button class="roundedButton" >Interested</button>
       </div>
     </ion-card-content>
   </ion-card>
