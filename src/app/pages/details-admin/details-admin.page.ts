@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsAdminPage implements OnInit {
 
+  tab: string = 'basic'
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setTab(tab: string){
+    this.tab = tab;
   }
 
 }

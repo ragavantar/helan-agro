@@ -1,0 +1,43 @@
+ion-item{
+    padding-bottom: 5px;
+}
+
+.tabs{
+    background: white;
+    color: #86C34A;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    div{
+        padding: 15px;
+        flex: 1;
+        text-align: center;
+    }
+    .active{
+        background: #86C34A;
+        color: white;
+    }
+}
+
+ion-card{
+    margin-left: 0;
+    margin-right: 0;  
+
+    &-title{
+        margin: 5px 0;
+    }
+    div{
+        display: inline-block;
+        padding-right: 10px;
+    }
+}
+
+.first{
+    border-right: 1px solid black;
+    margin-right: 10px; 
+    padding-right: 10px; 
+}
+
+div div{
+    padding: 10px 0;
+}

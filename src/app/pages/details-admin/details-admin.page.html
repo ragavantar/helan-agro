@@ -1,9 +1,185 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>detailsAdmin</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+
+    <!-- slides start -->
+    <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+          <ion-img
+            src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+          </ion-img>
+        </ion-slide>
+        <ion-slide>
+          <ion-img
+            src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+          </ion-img>
+        </ion-slide>
+        <ion-slide>
+          <ion-img
+            src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+          </ion-img>
+        </ion-slide>
+      </ion-slides>
+      <!-- slides end -->
+  
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-label>
+          <ion-card-title>hello</ion-card-title>
+          <ion-card-subtitle>welcome</ion-card-subtitle>
+        </ion-label>
+        <ion-avatar slot="end">
+          <ion-icon name="share" size="large"></ion-icon>
+        </ion-avatar>
+      </ion-item>
+      <ion-item>
+        <div class="first">
+          <ion-card-subtitle>Willing to</ion-card-subtitle>
+          Sell
+        </div>
+        <div>
+          <ion-card-subtitle>Quantity</ion-card-subtitle>
+          3
+        </div>
+      </ion-item>
+  
+      <div style="display:block; text-align:end;">
+        <button class="roundedButton">Approve</button>
+      </div>  
+
+      <ion-card>
+        <div class="tabs" style="padding: 0;">
+          <div [class.active]="tab == 'basic'" (click)="setTab('basic')">Basic</div>
+          <div [class.active]="tab == 'land'" (click)="setTab('land')">Land</div>
+          <div [class.active]="tab == 'equipment'" (click)="setTab('equipment')">Equipment</div>
+        </div>
+      </ion-card>
+  <div *ngIf="tab == 'basic'">
+
+    <div>
+      <ion-label>First Name</ion-label>
+      <div>xxx</div>
+    </div>
+
+    <div>
+      <ion-label>Last Name</ion-label>
+      <div>xxx</div>
+    </div>
+
+    <div>
+      <ion-label>Mobile Number</ion-label>
+      <div>xxx</div>
+    </div>
+
+    <div>
+      <ion-label>Location</ion-label>
+      <div>xxx</div>
+    </div>
+
+    <div>
+      <ion-label>Address</ion-label>
+      <div>xxx</div>
+    </div>
+
+    <div>
+      <ion-label>Pincode</ion-label>
+      <div>xxx</div>
+    </div>
+
+    <div>
+      <ion-label>State</ion-label>
+      <div>xxx</div>
+    </div>
+
+    <div>
+      <ion-label>Country</ion-label>
+      <div>xxx</div>
+    </div>
+
+  </div>
+
+  <div *ngIf="tab == 'land'">
+    <!-- template start -->
+    <ion-card>
+      <ion-row>
+        <ion-col size="4">
+          <img src='assets/img.png' alt="land image" />
+        </ion-col>
+        <ion-col>
+
+          <ion-card-title>Mango Farm</ion-card-title>
+          <div class="first">
+            <ion-card-subtitle>Willing to</ion-card-subtitle>
+            Sell
+          </div>
+          <div>
+            <ion-card-subtitle>Quantity</ion-card-subtitle>
+            3
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <!-- template end -->
+    <ion-card routerLink="/registration-farmer-land" routerDirection="forward">
+      <ion-row>
+        <ion-col size="4">
+          <img src='assets/default-thumbnail.png' alt="land image" />
+        </ion-col>
+        <ion-col>
+
+          <ion-card-title>Add Land</ion-card-title>
+
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <div *ngIf="tab == 'equipment'">
+    <!-- template start -->
+    <ion-card>
+      <ion-row>
+        <ion-col size="4">
+          <img src='assets/img.png' alt="land image" />
+        </ion-col>
+        <ion-col>
+
+          <ion-card-title>Equipment 1</ion-card-title>
+          <div class="first">
+            <ion-card-subtitle>Willing to</ion-card-subtitle>
+            Rent
+          </div>
+          <div>
+            <ion-card-subtitle>Quantity</ion-card-subtitle>
+            2
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <!-- template end -->
+    <ion-card routerLink="/registration-farmer-equipments" routerDirection="forward">
+      <ion-row>
+        <ion-col size="4">
+          <img src='assets/default-thumbnail.png' alt="land image" />
+        </ion-col>
+        <ion-col>
+
+          <ion-card-title>Add Equipment</ion-card-title>
+
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
 
 </ion-content>
