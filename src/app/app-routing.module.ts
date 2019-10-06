@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'registration-farmer-land', loadChildren: './pages/registration-farmer-land/registration-farmer-land.module#RegistrationFarmerLandPageModule' },
   { path: 'registration-invester', loadChildren: './pages/registration-invester/registration-invester.module#RegistrationInvesterPageModule' },
   { path: 'home-invester', loadChildren: './pages/home-invester/home-invester.module#HomeInvesterPageModule' },
+  { path: 'details-invester', loadChildren: './pages/details-invester/details-invester.module#DetailsInvesterPageModule' },
 ];
 
 @NgModule({

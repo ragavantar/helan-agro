@@ -1,0 +1,12 @@
+div{
+    display: inline-block;
+    padding-right: 10px;
+    &.first{
+        border-right: 1px solid black;
+        margin-right: 10px; 
+    }
+}
+
+ion-item{
+    padding-bottom: 5px;
+}

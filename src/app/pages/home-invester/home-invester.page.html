@@ -22,18 +22,23 @@
   <div *ngIf="filters" class="filters" padding>
     <div>
       <div>Looking for</div>
-      <button class="roundedButton">Land</button>
-      <button class="roundedButton">Equipment</button>
+      <button class="roundedButton" [class.active]="checkFilter('land')" (click)="toggleFilter('land')">Land</button>
+      <button class="roundedButton" [class.active]="checkFilter('equipment')" (click)="toggleFilter('equipment')">Equipment</button>
     </div>
     <div>
       <div>To</div>
-      <button class="roundedButton">Rent</button>
-      <button class="roundedButton">Buy</button>
+      <button class="roundedButton" [class.active]="checkFilter('rent')" (click)="toggleFilter('rent')">Rent</button>
+      <button class="roundedButton" [class.active]="checkFilter('buy')" (click)="toggleFilter('buy')">Buy</button>
     </div>
   </div>
 
 <div class="wrapper" padding>
-  <ion-card>
+  <div padding>
+    <div>Filters applied</div>
+    <button *ngFor="let filter of appliedFilters" class="roundedButton">{{filter}}</button>
+  </div>
+  <!-- template starts -->
+  <ion-card routerLink="/details-invester" routerDirection="forward">
     <img src='https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
     <ion-item lines="none">
       <ion-avatar slot="start">
@@ -56,7 +61,8 @@
       <div class="last">
           <button class="roundedButton" >Interested</button>
       </div>
-    </ion-card-content>
+        </ion-card-content>
   </ion-card>
+  <!-- template ends -->
 </div>
 </ion-content>

@@ -28,7 +28,7 @@ ion-content{
 .wrapper{
     background: white;
     border-radius: 30px 30px 0 0;
-    padding: 50px 0;
+    padding: 20px 0;
     margin-top: 10px; 
 }
 
@@ -38,11 +38,14 @@ color: white;
     background: #abd581;
     border-color: #abd581;
     color: white;
-    margin-top: 10px;
     &.active{
         background: white;
         border-color: white;
         color: #86C34A;
     }
 }
+}
+
+.roundedButton{
+    margin-top: 10px; 
 }
