@@ -69,6 +69,8 @@ export class LoginPage implements OnInit {
         :
         this.nav.navigateForward('registration-invester')
       }
+      else if(this.userType == 'Admin')
+      this.nav.navigateForward('home-admin')
     }, 500);
   }
 
