@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: 'registration-invester', loadChildren: './pages/registration-invester/registration-invester.module#RegistrationInvesterPageModule' },
   { path: 'home-invester', loadChildren: './pages/home-invester/home-invester.module#HomeInvesterPageModule' },
   { path: 'details-invester', loadChildren: './pages/details-invester/details-invester.module#DetailsInvesterPageModule' },
+  { path: 'details-admin', loadChildren: './pages/details-admin/details-admin.module#DetailsAdminPageModule' },
+  { path: 'home-admin', loadChildren: './pages/home-admin/home-admin.module#HomeAdminPageModule' },
 ];
 
 @NgModule({
