@@ -1,9 +1,76 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>homeAdmin</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+    <ion-toolbar>
+      <ion-title>homeAdmin</ion-title>
+  
+      <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon name="search"></ion-icon>
+          </ion-button>
+          <ion-button>
+              <ion-icon name="notifications"></ion-icon>
+          </ion-button>
+          <ion-button (click)="toggleFilters()">
+              <ion-icon name="options"></ion-icon>
+          </ion-button>
+        </ion-buttons>   
+  
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <div *ngIf="filters" class="filters" padding>
+      <div>
+        <div>Approval</div>
+        <button class="roundedButton" [class.active]="checkFilter('all')" (click)="toggleFilter('all')">All</button>
+        <button class="roundedButton" [class.active]="checkFilter('pending')" (click)="toggleFilter('pending')">Pending</button>
+        <button class="roundedButton" [class.active]="checkFilter('approved')" (click)="toggleFilter('approved')">Approved</button>
+      </div>
+      <div>
+        <div>Purpose</div>
+        <button class="roundedButton" [class.active]="checkFilter('rent')" (click)="toggleFilter('rent')">Rent</button>
+        <button class="roundedButton" [class.active]="checkFilter('buy')" (click)="toggleFilter('buy')">Buy</button>
+      </div>
+      <div>
+        <div>View</div>
+        <button class="roundedButton" [class.active]="checkFilter('farmer')" (click)="toggleFilter('farmer')">Farmer</button>
+        <button class="roundedButton" [class.active]="checkFilter('investor')" (click)="toggleFilter('investor')">Investor</button>
+        <button class="roundedButton" [class.active]="checkFilter('other')" (click)="toggleFilter('other')">Other</button>
+        <button class="roundedButton" [class.active]="checkFilter('admin')" (click)="toggleFilter('admin')">Admin</button>
+      </div>
+    </div>
+  
+  <div class="wrapper" padding>
+    <div padding>
+      <div>Filters applied</div>
+      <button *ngFor="let filter of appliedFilters" class="roundedButton">{{filter}}</button>
+    </div>
+    <!-- template starts -->
+    <ion-card routerLink="/details-admin" routerDirection="forward">
+      <img src='https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500' />
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-label>
+          <ion-card-title>hello</ion-card-title>
+          <ion-card-subtitle>welcome</ion-card-subtitle>
+        </ion-label>
+      </ion-item>
+      <ion-card-content>
+        <div class="first">
+            <ion-card-subtitle>Willing to</ion-card-subtitle>
+            Sell  
+        </div>
+        <div>
+            <ion-card-subtitle>Quantity</ion-card-subtitle>
+            3  
+        </div>
+        <div class="last">
+            <button class="roundedButton">Approve</button>
+        </div>
+          </ion-card-content>
+    </ion-card>
+    <!-- template ends -->
+  </div>
+  </ion-content>
