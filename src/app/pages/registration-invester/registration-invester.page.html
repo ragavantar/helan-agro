@@ -9,6 +9,12 @@
 
 <ion-content padding>
     <h1>Welcome User</h1>
+
+    <div class="box">
+        <ion-img src="assets/default-thumbnail.png"></ion-img>
+        <div>Add Photos</div>
+      </div>
+      
     <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
     <div>
       <ion-label>First Name</ion-label>
