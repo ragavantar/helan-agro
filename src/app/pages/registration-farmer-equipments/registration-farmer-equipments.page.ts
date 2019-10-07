@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController, NavController } from '@ionic/angular';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-farmer-equipments',
@@ -16,7 +17,19 @@ export class RegistrationFarmerEquipmentsPage implements OnInit {
     toast.present();
   }
 
-  constructor(public toastController: ToastController, private nav:NavController) { }
+  basicForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    number: ['', Validators.required],
+    location: ['', Validators.required],
+    address: ['', Validators.required],
+    pincode: ['', Validators.required],
+    state: ['', Validators.required],
+    country: ['', Validators.required]
+  })
+
+
+  constructor(private fb:FormBuilder, public toastController: ToastController, private nav:NavController) { }
 
   ngOnInit() {
   }

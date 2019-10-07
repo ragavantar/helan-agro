@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder } from '@angular/forms';
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registration-invester',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationInvesterPage implements OnInit {
 
-  constructor() { }
+
+  regForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    number: ['', Validators.required],
+    location: ['', Validators.required],
+    address: ['', Validators.required],
+    pincode: ['', Validators.required],
+    state: ['', Validators.required],
+    country: ['', Validators.required]
+  })
+
+
+  async presentToast(msg) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  constructor(public fb:FormBuilder, public toastController:ToastController, private nav:NavController) { }
 
   ngOnInit() {
   }
 
+  onSubmit(){
+    this.presentToast('saved successfully');
+    this.nav.navigateForward('home-invester')
+  }
 }
