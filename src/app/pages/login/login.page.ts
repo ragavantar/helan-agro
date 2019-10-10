@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastController, NavController } from '@ionic/angular';
 
+import { UserService } from '../../providers/user/user.service' ;
+import { TokenService } from '../../providers/token/token.service'
 
 
 @Component({
@@ -26,11 +28,24 @@ export class LoginPage implements OnInit {
   // })
   //pattern should also add
 
+//   {
+//     "firstName":"sathish",
+//     "lastName":"mani",
+//     "username":"samthish",
+//     "email":"sathish@gail.com",
+//     "password":"sathish",
+//     "phoneNumber":"12131313",
+//     "signupType": "FARMER"
+// }
 
   signupForm = this.fb.group({
-    name: ['', Validators.required],
-    number: ['', Validators.required],
-    email: ['', Validators.required]
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    userName: ['', Validators.required],
+    phoneNumber: ['', Validators.required],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    signupType: ['FARMER']
   })
 
 
@@ -44,9 +59,17 @@ export class LoginPage implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, public toastController: ToastController, private nav:NavController) { }
+  constructor(
+    private fb: FormBuilder,
+    public toastController: ToastController,
+    private nav:NavController,
+    private userService: UserService,
+    private token: TokenService
+    ) { }
 
   ngOnInit() {
+    this.token.setUserToken('hello token')
+    this.userService.getUser().subscribe(data => console.log(data), err => console.log(err))
   }
 
   formType(){
@@ -61,8 +84,11 @@ export class LoginPage implements OnInit {
     console.log('submitted', this.signupForm, this.signupForm.valid)
     this.presentToast('successfully submitted')
     setTimeout(() => {
-      if(this.userType == 'Farmer')
-      this.nav.navigateForward('registration-farmer')
+      if(this.userType == 'Farmer'){
+        this.userService.signUp(this.signupForm.value).subscribe(data => console.log(data), err => console.log(err))
+        console.log(this.signinForm.value)
+        // this.nav.navigateForward('registration-farmer')
+    }
       else if(this.userType == 'Invester'){
         this.signin?
         this.nav.navigateForward('home-invester')
