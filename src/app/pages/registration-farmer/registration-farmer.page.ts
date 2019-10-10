@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastController, NavController } from '@ionic/angular';
 
+import { RegistrationFarmerService } from '../../providers/registration-farmer/registration-farmer.service';
+
 @Component({
   selector: 'app-registration-farmer',
   templateUrl: './registration-farmer.page.html',
@@ -31,7 +33,11 @@ export class RegistrationFarmerPage implements OnInit {
     toast.present();
   }
 
-  constructor(private fb: FormBuilder, public toastController: ToastController, private nav: NavController) { }
+  constructor(
+    private fb: FormBuilder,
+    public toastController: ToastController,
+    private nav: NavController,
+    private api: RegistrationFarmerService) { }
 
   ngOnInit() {
   }
@@ -45,6 +51,7 @@ export class RegistrationFarmerPage implements OnInit {
   }
 
   submitForm(){
+    // this.api.regBasic(this.basicForm.value);
     this.presentToast('Form submitted successfully');
   }
 

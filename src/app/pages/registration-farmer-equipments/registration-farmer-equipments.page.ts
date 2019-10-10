@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController, NavController } from '@ionic/angular';
 import { FormBuilder, Validators } from '@angular/forms';
 
+import { RegistrationFarmerService } from '../../providers/registration-farmer/registration-farmer.service';
+
 @Component({
   selector: 'app-registration-farmer-equipments',
   templateUrl: './registration-farmer-equipments.page.html',
@@ -17,7 +19,7 @@ export class RegistrationFarmerEquipmentsPage implements OnInit {
     toast.present();
   }
 
-  basicForm = this.fb.group({
+  equipForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     number: ['', Validators.required],
@@ -29,12 +31,17 @@ export class RegistrationFarmerEquipmentsPage implements OnInit {
   })
 
 
-  constructor(private fb:FormBuilder, public toastController: ToastController, private nav:NavController) { }
+  constructor(
+    private fb:FormBuilder,
+    public toastController: ToastController,
+    private nav:NavController,
+    private api: RegistrationFarmerService) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
+    // this.api.regBasic(this.equipForm.value);
     this.presentToast('submitted successfully')
     setTimeout(() => {
       this.nav.navigateBack('/registration-farmer');
