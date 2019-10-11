@@ -68,7 +68,7 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.userService.getUser().subscribe(data => console.log(data), err => console.log(err))
+    this.userService.getUser().subscribe(data => console.log(data), err => console.log(err))
   }
 
   formType() {

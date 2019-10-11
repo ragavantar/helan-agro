@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppSettings } from '../../app-constant/app.setting';
 
 import { TokenService } from '../token/token.service'
+import { Observable, observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,18 +20,47 @@ export class UserService {
   
   constructor(private http:HttpClient, private token: TokenService) { }
     
-  signUp(data: object){
+  signIn(data: object){
     return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data, this.token.getHeader())
   }
 
-  signIn(data: object){
-    return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
-
-    // this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data).subscribe(data => console.log(data), err => console.log(err))
-    
+  signUp(data: object){
+    // return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
+      return new Observable((observer)=>{
+        this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
+        .subscribe(
+          data => {
+            observer.next(data)
+          }, err => {
+            observer.error(err)
+          })
+          observer.complete()
+        })
   }
+
+  getUserO = new Observable((observer)=>{
+      observer.next('f')
+      observer.next('f')
+      observer.next('f')
+      observer.complete()
+  })
 
   getUser(){
-    return this.http.get(AppSettings.API_ENDPOINT+'/user-detail/get-all', this.token.getHeader())
+    return new Observable((observer=>{
+
+      observer.next('first')
+      this.http.get(AppSettings.API_ENDPOINT+'/user-detail/get-all', this.token.getHeader())
+      .subscribe(
+        data=>{
+          console.log('s',data)
+          // return data 
+          observer.next(data)
+        }, err => console.log(err)
+      )
+
+      observer.complete()
+    }))
   }
+
+  
 }
