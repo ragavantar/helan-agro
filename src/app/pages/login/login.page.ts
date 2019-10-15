@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
   userType: string = 'Farmer'
 
   signinForm = this.fb.group({
-    userId: ['', Validators.required],
+    usernameOrEmail: ['', Validators.required],
     password: ['', Validators.required]
   })
 
@@ -44,8 +44,7 @@ export class LoginPage implements OnInit {
     userName: ['', Validators.required],
     phoneNumber: ['', Validators.required],
     email: ['', Validators.required],
-    password: ['', Validators.required],
-    signupType: ['FARMER']
+    password: ['', Validators.required]
   })
 
 
@@ -68,7 +67,7 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(data => console.log(data), err => console.log(err))
+    // this.userService.getUser().subscribe(data => console.log(data), err => console.log(err))
   }
 
   formType() {
@@ -103,21 +102,34 @@ export class LoginPage implements OnInit {
       if(this.userType == 'Farmer'){
         this.nav.navigateForward('registration-farmer');
       }else if(this.userType == 'Invester'){
-        this.signin?
+        // this.signin?
         this.nav.navigateForward('home-invester')
-        :
-        this.nav.navigateForward('registration-invester')
+        // :
+        // this.nav.navigateForward('registration-invester')
       }else if(this.userType == 'Admin'){
         this.nav.navigateForward('home-admin')
       }
   }
 
-  checkSignIn() {
-    let data = {...this.signinForm.value};
+  checkSignUp() {
+    let data = {...this.signupForm.value};
     // data.signupType = 'FARMER';
     data.signupType = this.userType.toUpperCase();
-    this.userService.signUp(this.signupForm.value).subscribe(data => {console.log(data), this.goNextPg()}, err => console.log(err))
+    this.userService.signUp(data).subscribe(data => {console.log(data), this.goNextPg()}, err => console.log(err))
   }
 
+  checkSignIn(){
+    let data = {
+      "usernameOrEmail":"usr7@gmail.com",
+      "password":"123456"
+    }
 
+    this.userService.signIn(this.signinForm.value)
+    .subscribe(
+      data=>{
+        console.log(data)
+      },
+      err => console.log(err)
+    )
+  }
 }

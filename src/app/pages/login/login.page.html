@@ -30,10 +30,10 @@
 
   <!-- signin -->
   <div *ngIf="signin; else signup">
-    <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="signinForm" (ngSubmit)="checkSignIn()">
       <div>
         <ion-label>User Id</ion-label>
-        <ion-input formControlName="userId" type="text" inputmode="text" placeholder="Enter User Id" class="input"></ion-input>
+        <ion-input formControlName="usernameOrEmail" type="text" inputmode="text" placeholder="Enter User Id" class="input"></ion-input>
       </div>
       <div>
         <ion-label>Password</ion-label>
@@ -48,7 +48,7 @@
 
   <ng-template #signup>
  <!-- signup -->
- <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+ <form [formGroup]="signupForm" (ngSubmit)="checkSignUp()">
  <div>
     <ion-label>First Name</ion-label>
     <ion-input formControlName="firstName" type="text" inputmode="text" placeholder="Enter Name" class="input"></ion-input>

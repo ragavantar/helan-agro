@@ -20,14 +20,14 @@ export class UserService {
   
   constructor(private http:HttpClient, private token: TokenService) { }
     
-  signIn(data: object){
-    return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data, this.token.getHeader())
+  signUp(data: object){
+    return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
   }
 
-  signUp(data: object){
+  signIn(data: object){
     // return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
       return new Observable((observer)=>{
-        this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
+        this.http.post(AppSettings.API_ENDPOINT+'/auth/signin', data)
         .subscribe(
           data => {
             observer.next(data)
@@ -37,13 +37,6 @@ export class UserService {
           observer.complete()
         })
   }
-
-  getUserO = new Observable((observer)=>{
-      observer.next('f')
-      observer.next('f')
-      observer.next('f')
-      observer.complete()
-  })
 
   getUser(){
     return new Observable((observer=>{
