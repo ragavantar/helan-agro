@@ -21,20 +21,23 @@ export class UserService {
   constructor(private http:HttpClient, private token: TokenService) { }
     
   signUp(data: object){
-    return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
+    return this.http.post(AppSettings.API_ENDPOINT+'/api/auth/signup', data)
   }
 
   signIn(data: object){
     // return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
       return new Observable((observer)=>{
-        this.http.post(AppSettings.API_ENDPOINT+'/auth/signin', data)
+        this.http.post(AppSettings.API_ENDPOINT+'/api/auth/signin', data)
         .subscribe(
           data => {
-            observer.next(data)
+            this.token.setUidx(data.uidx);
+            this.token.setUserToken(data.accessToken);
+            observer.next('success')
+            observer.complete()
           }, err => {
-            observer.error(err)
+            observer.error(err.error.message)
+            observer.complete()
           })
-          observer.complete()
         })
   }
 

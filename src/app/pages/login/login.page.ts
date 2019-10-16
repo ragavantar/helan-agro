@@ -119,17 +119,13 @@ export class LoginPage implements OnInit {
   }
 
   checkSignIn(){
-    let data = {
-      "usernameOrEmail":"usr7@gmail.com",
-      "password":"123456"
-    }
-
     this.userService.signIn(this.signinForm.value)
     .subscribe(
       data=>{
-        console.log(data)
+        this.presentToast(data)
+        this.goNextPg()
       },
-      err => console.log(err)
+      err => this.presentToast(err)
     )
   }
 }
