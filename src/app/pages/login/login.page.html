@@ -23,7 +23,7 @@
   </div>
   <div>
     <button class="roundedButton" [class.active]="userType == 'Farmer'" (click)="setUserType('Farmer')">Farmer</button>
-    <button class="roundedButton" [class.active]="userType == 'Invester'" (click)="setUserType('Invester')">Investor</button>
+    <button class="roundedButton" [class.active]="userType == 'Investor'" (click)="setUserType('Investor')">Investor</button>
     <button class="roundedButton" [class.active]="userType == 'Others'" (click)="setUserType('Others')">Others</button>
     <button class="roundedButton" [class.active]="userType == 'Admin'" (click)="setUserType('Admin')">Admin</button>
   </div>
@@ -59,7 +59,7 @@
     </div>
     <div>
         <ion-label>User Name</ion-label>
-        <ion-input formControlName="userName" type="text" inputmode="text" placeholder="Enter Name" class="input"></ion-input>
+        <ion-input formControlName="username" type="text" inputmode="text" placeholder="Enter Name" class="input"></ion-input>
       </div>
   <div>
     <ion-label>Mobile Number</ion-label>

@@ -21,30 +21,13 @@ export class LoginPage implements OnInit {
     password: ['', Validators.required]
   })
 
-  // signupForm = this.fb.group({
-  //   name: ['', Validators.required],
-  //   number: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-  //   email: ['', [Validators.required, Validators.email]]
-  // })
-  //pattern should also add
-
-  //   {
-  //     "firstName":"sathish",
-  //     "lastName":"mani",
-  //     "username":"samthish",
-  //     "email":"sathish@gail.com",
-  //     "password":"sathish",
-  //     "phoneNumber":"12131313",
-  //     "signupType": "FARMER"
-  // }
-
   signupForm = this.fb.group({
-    firstName: ['', Validators.required],
+    firstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
     lastName: ['', Validators.required],
-    userName: ['', Validators.required],
+    username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
     phoneNumber: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required]
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
   })
 
 
@@ -78,30 +61,10 @@ export class LoginPage implements OnInit {
     this.userType = type;
   }
 
-  // onSubmit(){
-  //   console.log('submitted', this.signupForm, this.signupForm.valid)
-  //   this.presentToast('successfully submitted')
-  //   setTimeout(() => {
-  //     if(this.userType == 'Farmer'){
-  //       this.userService.signUp(this.signupForm.value).subscribe(data => console.log(data), err => console.log(err))
-  //       console.log(this.signinForm.value)
-  //       // this.nav.navigateForward('registration-farmer')
-  //   }
-  //     else if(this.userType == 'Invester'){
-  //       this.signin?
-  //       this.nav.navigateForward('home-invester')
-  //       :
-  //       this.nav.navigateForward('registration-invester')
-  //     }
-  //     else if(this.userType == 'Admin')
-  //     this.nav.navigateForward('home-admin')
-  //   }, 500);
-  // }
-
   goNextPg(){
       if(this.userType == 'Farmer'){
         this.nav.navigateForward('registration-farmer');
-      }else if(this.userType == 'Invester'){
+      }else if(this.userType == 'Investor'){
         // this.signin?
         this.nav.navigateForward('home-invester')
         // :
@@ -115,7 +78,14 @@ export class LoginPage implements OnInit {
     let data = {...this.signupForm.value};
     // data.signupType = 'FARMER';
     data.signupType = this.userType.toUpperCase();
-    this.userService.signUp(data).subscribe(data => {console.log(data), this.goNextPg()}, err => console.log(err))
+    this.userService.signUp(data)
+    .subscribe(
+      res => {
+        const result: any = res; 
+        this.presentToast(result.message)
+        window.location.href = '/login'
+      }, 
+      err => this.presentToast(err.error.message))
   }
 
   checkSignIn(){
