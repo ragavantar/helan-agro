@@ -15,52 +15,51 @@
 <ion-content padding>
   <div *ngIf="tab == 'basic'">
     <h1>Welcome User</h1>
-
+    <form [formGroup]="basicForm" (ngSubmit)="submitBasic()">
     <div class="box">
-        <ion-img src="assets/default-thumbnail.png"></ion-img>
-        <div>Add Photos</div>
-      </div>
+        <label for="file-input">
+          <ion-img src="assets/default-thumbnail.png"></ion-img>
+          <div>Add Photos</div>
+        </label>
+        <input id="file-input" type="file" style="display: none;"/>
+    </div>
       
     <div>
       <ion-label>First Name</ion-label>
-      <ion-input placeholder="Enter First Name" class="input"></ion-input>
+      <ion-input formControlName="firstName" placeholder="Enter First Name" class="input"></ion-input>
     </div>
 
     <div>
       <ion-label>Last Name</ion-label>
-      <ion-input placeholder="Enter Last Name" class="input"></ion-input>
+      <ion-input formControlName="lastName" placeholder="Enter Last Name" class="input"></ion-input>
     </div>
 
     <div>
       <ion-label>Mobile Number</ion-label>
-      <ion-input placeholder="Enter Mobile Number" class="input"></ion-input>
-    </div>
-
-    <div>
-      <ion-label>Location</ion-label>
-      <ion-input placeholder="Enter Location" class="input"></ion-input>
+      <ion-input formControlName="phoneNumber" placeholder="Enter Mobile Number" class="input"></ion-input>
     </div>
 
     <div>
       <ion-label>Address</ion-label>
-      <ion-input placeholder="Enter Address" class="input"></ion-input>
+      <ion-input formControlName="address" placeholder="Enter Address" class="input"></ion-input>
     </div>
 
     <div>
-      <ion-label>Pincode</ion-label>
-      <ion-input placeholder="Enter Pincode" class="input"></ion-input>
+      <ion-label>City</ion-label>
+      <ion-input formControlName="city" placeholder="Enter Location" class="input"></ion-input>
     </div>
 
     <div>
       <ion-label>State</ion-label>
-      <ion-input placeholder="Enter State" class="input"></ion-input>
+      <ion-input formControlName="state" placeholder="Enter State" class="input"></ion-input>
     </div>
 
     <div>
-      <ion-label>Country</ion-label>
-      <ion-input placeholder="Enter Country" class="input"></ion-input>
+      <ion-label>Pincode</ion-label>
+      <ion-input formControlName="pin" placeholder="Enter Pincode" class="input"></ion-input>
     </div>
-
+    
+  </form>
   </div>
 
   <div *ngIf="tab == 'land'">

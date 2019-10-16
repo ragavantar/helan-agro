@@ -59,5 +59,8 @@ export class UserService {
     }))
   }
 
+  getBasic(){
+    return this.http.get(AppSettings.API_ENDPOINT+'/user-detail/get-one', this.token.getHeader())
+  }
   
 }

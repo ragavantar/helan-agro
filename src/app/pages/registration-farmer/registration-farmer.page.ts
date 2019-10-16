@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ToastController, NavController } from '@ionic/angular';
 
 import { RegistrationFarmerService } from '../../providers/registration-farmer/registration-farmer.service';
+import { UserService } from 'src/app/providers/user/user.service';
 
 @Component({
   selector: 'app-registration-farmer',
@@ -16,12 +17,11 @@ export class RegistrationFarmerPage implements OnInit {
   basicForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    number: ['', Validators.required],
-    location: ['', Validators.required],
+    phoneNumber: ['', Validators.required],
+    city: ['', Validators.required],
     address: ['', Validators.required],
-    pincode: ['', Validators.required],
-    state: ['', Validators.required],
-    country: ['', Validators.required]
+    pin: ['', Validators.required],
+    state: ['', Validators.required]
   })
 
 
@@ -37,9 +37,21 @@ export class RegistrationFarmerPage implements OnInit {
     private fb: FormBuilder,
     public toastController: ToastController,
     private nav: NavController,
-    private api: RegistrationFarmerService) { }
+    private api: RegistrationFarmerService,
+    private userService: UserService
+    ) { }
 
   ngOnInit() {
+    // this.userService.getBasic()
+    // .subscribe(
+    //   res=>{
+    //     this.basicForm.patchValue(res)
+    //   }
+    //   ,
+    //   err=>{
+    //     console.log('err', err)
+    //   }
+    // )
   }
 
   setTab(tab: string){
@@ -53,6 +65,10 @@ export class RegistrationFarmerPage implements OnInit {
   submitForm(){
     // this.api.regBasic(this.basicForm.value);
     this.presentToast('Form submitted successfully');
+  }
+
+  submitBasic(){
+
   }
 
 }
