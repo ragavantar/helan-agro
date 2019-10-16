@@ -30,7 +30,7 @@ export class UserService {
         this.http.post(AppSettings.API_ENDPOINT+'/api/auth/signin', data)
         .subscribe(
           res => {
-            var result: any = res;
+            const result: any = res;
             this.token.setUidx(result.uidx);
             this.token.setUserToken(result.accessToken);
             observer.next('success')
