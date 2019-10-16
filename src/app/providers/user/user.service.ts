@@ -24,14 +24,15 @@ export class UserService {
     return this.http.post(AppSettings.API_ENDPOINT+'/api/auth/signup', data)
   }
 
-  signIn(data: object){
+  signIn(data: any){
     // return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data)
       return new Observable((observer)=>{
         this.http.post(AppSettings.API_ENDPOINT+'/api/auth/signin', data)
         .subscribe(
-          data => {
-            this.token.setUidx(data.uidx);
-            this.token.setUserToken(data.accessToken);
+          res => {
+            var result: any = res;
+            this.token.setUidx(result.uidx);
+            this.token.setUserToken(result.accessToken);
             observer.next('success')
             observer.complete()
           }, err => {
