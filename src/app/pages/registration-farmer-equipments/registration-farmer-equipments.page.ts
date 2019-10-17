@@ -22,12 +22,7 @@ export class RegistrationFarmerEquipmentsPage implements OnInit {
   equipForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    number: ['', Validators.required],
-    location: ['', Validators.required],
-    address: ['', Validators.required],
-    pincode: ['', Validators.required],
-    state: ['', Validators.required],
-    country: ['', Validators.required]
+    number: ['', Validators.required]
   })
 
 
