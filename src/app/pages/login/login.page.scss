@@ -12,3 +12,12 @@ ion-radio-group{
 div{
     margin: 10px 0;
 }
+
+ion-input.ng-invalid{
+    &.ng-dirty, &.ng-touched{
+        border-color: red;
+        .msg{
+            display: block;
+        }
+    }
+}

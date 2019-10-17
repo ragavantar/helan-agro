@@ -42,16 +42,16 @@ export class RegistrationFarmerPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    // this.userService.getBasic()
-    // .subscribe(
-    //   res=>{
-    //     this.basicForm.patchValue(res)
-    //   }
-    //   ,
-    //   err=>{
-    //     console.log('err', err)
-    //   }
-    // )
+    this.userService.getBasic()
+    .subscribe(
+      res=>{
+        this.basicForm.patchValue(res)
+      }
+      ,
+      err=>{
+        console.log('err', err)
+      }
+    )
   }
 
   setTab(tab: string){
@@ -68,7 +68,13 @@ export class RegistrationFarmerPage implements OnInit {
   }
 
   submitBasic(){
-
+    this.api.regBasic(this.basicForm.value)
+    .subscribe(
+      data=>{
+        this.presentToast(data)
+      },
+      err => this.presentToast(err)
+    )
   }
 
 }

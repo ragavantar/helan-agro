@@ -49,10 +49,12 @@
   <ng-template #signup>
  <!-- signup -->
  <form [formGroup]="signupForm" (ngSubmit)="checkSignUp()">
- <div>
+  <div>
     <ion-label>First Name</ion-label>
-    <ion-input formControlName="firstName" type="text" inputmode="text" placeholder="Enter Name" class="input"></ion-input>
+    <ion-input formControlName="firstName" #firstName type="text" inputmode="text" placeholder="Enter Name" class="input"></ion-input>
+    <div [hidden]="firstName.valid">invalid not working</div>
   </div>
+
   <div>
       <ion-label>Last Name</ion-label>
       <ion-input formControlName="lastName" type="text" inputmode="text" placeholder="Enter Name" class="input"></ion-input>
@@ -67,7 +69,7 @@
   </div>
   <div>
     <ion-label>Email ID</ion-label>
-    <ion-input formControlName="email" type="text" inputmode="email" placeholder="Enter Email ID" class="input"></ion-input>
+    <ion-input formControlName="email" type="email" inputmode="email" placeholder="Enter Email ID" class="input"></ion-input>
   </div>
   <div>
       <ion-label>Password</ion-label>

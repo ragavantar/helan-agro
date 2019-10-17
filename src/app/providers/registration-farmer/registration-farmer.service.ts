@@ -13,7 +13,7 @@ export class RegistrationFarmerService {
   constructor(private http:HttpClient, private token: TokenService) { }
 
   regBasic(data: object){
-    return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data, this.token.getHeader())
+    return this.http.put(AppSettings.API_ENDPOINT+'/user-detail/update', data, this.token.getHeader())
   }
   
   regLand(data: object){
