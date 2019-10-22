@@ -20,9 +20,11 @@ export class RegistrationFarmerEquipmentsPage implements OnInit {
   }
 
   equipForm = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    number: ['', Validators.required]
+    equipmentName: ['', Validators.required],
+    equipmentDetails: ['', Validators.required],
+    equipmentImage: ['', Validators.required],
+    quantity: ['', Validators.required],
+    isWillingToRent: [true, Validators.required]
   })
 
 
@@ -37,9 +39,20 @@ export class RegistrationFarmerEquipmentsPage implements OnInit {
 
   onSubmit(){
     // this.api.regBasic(this.equipForm.value);
-    this.presentToast('submitted successfully')
-    setTimeout(() => {
-      this.nav.navigateBack('/registration-farmer');
-    }, 500);
+    
+    this.api.regEquipment(this.equipForm.value)
+    .subscribe(
+      res=>{
+        this.presentToast('submitted successfully')
+        console.log(res)
+      },
+      err=>{
+        console.log(err)
+        this.presentToast(err)
+      }
+    )
+    // setTimeout(() => {
+    //   this.nav.navigateBack('/registration-farmer');
+    // }, 500);
   }
 }

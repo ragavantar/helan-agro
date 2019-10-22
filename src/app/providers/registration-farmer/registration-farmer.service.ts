@@ -17,7 +17,7 @@ export class RegistrationFarmerService {
   }
   
   regLand(data: object){
-    return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data, this.token.getHeader())
+    return this.http.post(AppSettings.API_ENDPOINT+'/equipment', data, this.token.getHeader())
   }
   regEquipment(data: object){
     return this.http.post(AppSettings.API_ENDPOINT+'/auth/signup', data, this.token.getHeader())

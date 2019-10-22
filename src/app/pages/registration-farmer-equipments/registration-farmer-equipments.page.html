@@ -1,19 +1,22 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-      </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>registrationFarmerEquipments</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
-  <div class="box">
-    <ion-img src="assets/default-thumbnail.png"></ion-img>
-    <div>Add Photos</div>
-  </div>
-<!--   
+  <form [formGroup]="equipForm" (ngSubmit)="onSubmit()">
+    <div class="box">
+      <label for="file-input">
+        <ion-img src="assets/default-thumbnail.png"></ion-img>
+        <div>Add Photos</div>
+      </label>
+      <input formControlName="equipmentImage" id="file-input" type="file" style="display: none;" />
+    </div>
+    <!--   
   <div>
     <ion-radio-group>
       <div>
@@ -27,49 +30,53 @@
     </ion-radio-group>
   </div> -->
 
-  <!-- <div>
+    <!-- <div>
     <ion-label>Make</ion-label>
     <ion-select interface="action-sheet" placeholder="Select One">
       <ion-select-option value="f">Make 1</ion-select-option>
       <ion-select-option value="m">Make 2</ion-select-option>
     </ion-select>
   </div> -->
-  
-  <div>
-    <ion-row>
-      <ion-col size=8>
+
+    <div>
+      <ion-row>
+        <ion-col size=8>
           <ion-label>Name</ion-label>
-          <ion-input type="text" inputmode="text" placeholder="Enter Equipment/Vehicle Name" class="input"></ion-input>
+          <ion-input formControlName="equipmentName" type="text" inputmode="text"
+            placeholder="Enter Equipment/Vehicle Name" class="input"></ion-input>
         </ion-col>
-      <ion-col>
+        <ion-col>
           <ion-label>Quantity</ion-label>
-          <ion-input type="number" inputmode="number" placeholder="Enter Name" class="input"></ion-input>
-      </ion-col>
-    </ion-row>
-  </div>
+          <ion-input formControlName="quantity" type="number" inputmode="number" placeholder="Enter Name" class="input">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+    </div>
 
-  <div>
+    <div>
       <ion-label>Description</ion-label>
-      <ion-input type="text" inputmode="text" placeholder="Enter Equipment/Vehicle Description" class="input"></ion-input>
-  </div>
+      <ion-input formControlName="equipmentDetails" type="text" inputmode="text"
+        placeholder="Enter Equipment/Vehicle Description" class="input">
+      </ion-input>
+    </div>
 
-  <div>
-    <ion-label>Willing to</ion-label>
-    <div class="checks">
-      <div>
-        <ion-checkbox value="sell"></ion-checkbox>
-        <ion-label>Sell</ion-label>
-      </div>
-      <div>
-          <ion-checkbox value="rent"></ion-checkbox>
+    <div>
+      <ion-label>Willing to</ion-label>
+      <div class="checks">
+        <!-- <div>
+          <ion-checkbox value="sell"></ion-checkbox>
+          <ion-label>Sell</ion-label>
+        </div> -->
+        <div>
+          <ion-checkbox formControlName="isWillingToRent" value="rent"></ion-checkbox>
           <ion-label>Rent</ion-label>
         </div>
+      </div>
     </div>
-  </div>
 
-  <div style="text-align: end">
+    <div style="text-align: end">
       <ion-button (click)="onSubmit()">Save</ion-button>
       <!-- <ion-button class="disabled">Submit</ion-button> -->
     </div>
-    
+  </form>
 </ion-content>
